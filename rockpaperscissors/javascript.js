@@ -57,6 +57,20 @@ function game(userChoice){
             draw(userChoice, computerChoice);
             break;
     }
+    if(userScore == 5){
+        result_p.innerHTML = "User won 5 games and the game is over. Points are refreshed. Let's play again!";
+        userScore = 0;
+        computerScore = 0;
+        userScore_span.innerHTML = userScore
+        computerScore_span.innerHTML = computerScore;
+    }
+    if(computerScore == 5){
+        result_p.innerHTML = "Computer won 5 games and the game is over. Points are refreshed. Let's play again!";
+        userScore = 0;
+        computerScore = 0;
+        userScore_span.innerHTML = userScore
+        computerScore_span.innerHTML = computerScore;
+    }
 }
 
 
