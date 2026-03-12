@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>My Calendar</h1>
+            <div class="header-controls">
+                <button class="btn btn-secondary" id="todayBtn">Today</button>
+                <button class="btn btn-primary" id="newEventBtn">+ New Event</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <button class="btn btn-nav" id="prevMonth">&lt;</button>
+                    <h2 id="monthYear"></h2>
+                    <button class="btn btn-nav" id="nextMonth">&gt;</button>
+                </div>
+                
+                <div class="weekdays" id="weekdaysContainer"></div>
+                
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+
+            <div class="events-section">
+                <h3 id="selectedDateTitle">Events</h3>
+                <div class="events-list" id="eventsList">
+                    <p class="empty-state">Select a date to view events</p>
+                </div>
+                
+                <div class="notes-section" id="notes">
+                    <div class="notes-header">
+                        <h3>Notes for this day</h3>
+                        <button class="btn btn-primary btn-sm" id="saveNotesBtn">Save</button>
+                    </div>
+                    <textarea id="notesTextarea" placeholder="Write your notes here..."></textarea>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Event Modal -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">New Event</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            
+            <form id="eventForm" class="event-form">
+                <div class="form-group">
+                    <label for="eventTitle">Title *</label>
+                    <input type="text" id="eventTitle" required placeholder="Event title">
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDate">Date *</label>
+                    <input type="date" id="eventDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventTime">Time</label>
+                    <input type="time" id="eventTime">
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDescription">Description</label>
+                    <textarea id="eventDescription" placeholder="Add event details..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="deleteBtn" style="display: none;">Delete</button>
+                    <button type="submit" class="btn btn-primary">Save Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
