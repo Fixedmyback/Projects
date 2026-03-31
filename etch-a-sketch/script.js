@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to generate random color
     function getRandomColor() {
         const letters = '0123456789ABCDEF'; // Hexadecimal characters for RGB values
-        let color = '#';
+        let color = '#'; // Start with a # symbol
         for (let i = 0; i < 6; i++) { // Generate 6 hexadecimal characters for RGB values  
             color += letters[Math.floor(Math.random() * 16)]; // Randomly select a hexadecimal character
         }
@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < size * size; i++) { // Create a square for each cell in the grid
             const square = document.createElement('div'); // Create a new square
             square.classList.add('grid-square'); // Add the grid-square class to the square
-            square.dataset.darkness = 0; // Set the darkness of the square to 0
             grid.appendChild(square); // Add the square to the grid
         }
     }
@@ -40,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle grid size input changes
     gridSizeInput.addEventListener('change', (e) => {
-        const newSize = parseInt(e.target.value) || 16;
-        if (newSize > 0 && newSize <= 100) {
+        const newSize = parseInt(e.target.value) || 16; // Convert the input value to an integer, if it's not a number, set it to 16
+        if (newSize > 0 && newSize <= 100) { // Check if the new grid size is valid
             createGrid(newSize); 
             isDrawing = false; 
             isRandomMode = false; 
@@ -107,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const squares = document.querySelectorAll('.grid-square');
         squares.forEach(square => {
             square.style.backgroundColor = 'white';
-            square.dataset.darkness = 0;
         });
         isDrawing = false;
         isRandomMode = false;
